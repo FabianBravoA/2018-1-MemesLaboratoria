@@ -1,0 +1,11 @@
+<p>Título</p>
+<input #title type="text">
+<p>Imagen del meme</p>
+<input #image type="text">
+<p>Descripción</p>
+<input #description type="text">
+
+<button 
+  (click)="addMeme(title.value, image.value, description.value)">
+  ¡Agrega tu meme!
+</button>
