@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-meme-form',
@@ -7,19 +8,32 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class MemeFormComponent implements OnInit {
 
-  @Output() onMeme:EventEmitter<any> = new EventEmitter<any>();
+  @Output() onMeme: EventEmitter<any> = new EventEmitter<any>();
+  memeForm: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.createMemeForm();
+  }
 
   ngOnInit() {
   }
 
-  addMeme(title:string, image:string, description:string){
-    this.onMeme.emit({
-      title : title,
-      image : image,
-      description : description,
+  createMemeForm() {
+    this.memeForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      image: ['', Validators.required],
+      description: ['', Validators.required]
     });
+  }
+
+  addMeme() {
+    this.onMeme.emit({
+      title: this.memeForm.value.title,
+      image: this.memeForm.value.image,
+      description: this.memeForm.value.description,
+    });
+
+    this.memeForm.reset();
   }
 
 }

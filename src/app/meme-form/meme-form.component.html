@@ -1,11 +1,20 @@
-<p>Título</p>
-<input #title type="text">
-<p>Imagen del meme</p>
-<input #image type="text">
-<p>Descripción</p>
-<input #description type="text">
+<form [formGroup]="memeForm" (ngSubmit)="addMeme()">
+  <p>Título</p>
+  <input #title type="text" formControlName="title">
+  <p *ngIf="memeForm.get('title').errors && memeForm.get('title').errors.required && (memeForm.get('title').dirty || memeForm.get('title').touched)"
+    style="color:red;">Debes escribir un
+    título para el meme</p>
+  <p>Imagen del meme</p>
+  <input #image type="text" formControlName="image">
+  <p>Descripción</p>
+  <input #description type="text" formControlName="description">
 
-<button 
-  (click)="addMeme(title.value, image.value, description.value)">
-  ¡Agrega tu meme!
-</button>
+  <button type="submit" [disabled]="!memeForm.valid">
+    ¡Agrega tu meme!
+  </button>
+</form>
+<p>
+  {{memeForm.value | json}}
+  {{memeForm.status}}
+  {{memeForm.get('title').errors | json}}
+</p>
