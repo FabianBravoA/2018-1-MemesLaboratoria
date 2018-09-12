@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span>Laboratoria Memes</span>
-      <span class="toolbar-spacer"></span>
-      <a routerLink="/feed">Feed</a>
-      <button type="menu" (click)="goToFeed()">Feed</button>
-      <button type="menu" (click)="goToNew()">Agregar Meme</button>
+        <span>Laboratoria Memes</span>
+        <span class="toolbar-spacer"></span>
+        <a routerLink="/feed">Feed</a>
+        <button mat-button color="primary" (click)="goToFeed()">Feed</button>
+        <button *ngIf="authService.user | async" mat-button color="primary" (click)="goToNew()">Agregar Meme</button>
     </mat-toolbar-row>
     <mat-toolbar-row>
         <app-auth-form></app-auth-form>
