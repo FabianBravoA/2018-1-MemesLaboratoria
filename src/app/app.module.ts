@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
@@ -56,7 +57,8 @@ const appRoutes: Routes = [ // ruta + componente
     AngularFireAuthModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),//ruta
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
