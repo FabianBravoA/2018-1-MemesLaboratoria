@@ -1,3 +1,3 @@
-<app-meme *ngFor="let meme of memes" [title]="meme.title"
+<app-meme *ngFor="let meme of (memes$ | async)" [title]="meme.title"
           [image]="meme.image"
           [description]="meme.description"></app-meme>
