@@ -11,7 +11,7 @@ export class MemeFeedComponent implements OnInit {
   memes$:Observable<any>; 
 
   constructor(private database:AngularFireDatabase) {
-    this.memes$ = this.database.list('/memes').valueChanges(); // esto es como el once, se va actualizando todo
+    this.memes$ = this.database.list('/memes').valueChanges(); // esto es como el change, se va actualizando todo
   }
 
   ngOnInit() {
