@@ -13,10 +13,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AuthService } from './auth.service';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { MemeFeedComponent } from './meme-feed/meme-feed.component';
@@ -58,8 +58,9 @@ const appRoutes: Routes = [ // ruta + componente
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),//ruta
     MatToolbarModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    AngularFireDatabaseModule
+],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
