@@ -7,6 +7,9 @@
         <button mat-button *ngIf="authService.user | async" (click)="goToNew()">Agregar Meme</button>
     </mat-toolbar-row>
     <mat-toolbar-row>
+        Has perdido : {{seconds}}
+    </mat-toolbar-row>
+    <mat-toolbar-row>
         <app-auth-form></app-auth-form>
     </mat-toolbar-row>
 </mat-toolbar>

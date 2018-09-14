@@ -9,16 +9,24 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'Laboratoria Memes';
+  //visibleButton = false; // el estado del componente
+  seconds = 0;
 
   constructor(private router: Router, private authService: AuthService) {
-
+    setInterval(()=>{
+      this.tick();
+    }, 1000);
   }
 
   goToFeed() {
-    this.router.navigate(['/feed']);
+    this.router.navigate(['/feed']); //this instancia particular de la clase
   }
 
   goToNew() {
     this.router.navigate(['/new']);
+  }
+
+  tick() {
+    this.seconds++;
   }
 }
